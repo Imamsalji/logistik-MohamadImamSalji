@@ -16,10 +16,10 @@ Sebelum memulai, pastikan Anda memiliki beberapa alat berikut yang terpasang di 
 1. Buka terminal atau command prompt.
 2. Gunakan perintah Git untuk meng-clone repositori Laravel:
 
-git clone https://github.com/username/nama-repositori.git
+``git clone https://github.com/username/nama-repositori.git
 
 ## Langkah 2: Menginstal Dependensi
 
 1. Pastikan Anda sudah menginstal Composer.
 2. Jalankan perintah Composer untuk menginstal semua dependensi PHP yang dibutuhkan oleh Laravel::
-```bash
+bash
