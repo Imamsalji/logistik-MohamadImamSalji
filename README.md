@@ -21,5 +21,5 @@ Sebelum memulai, pastikan Anda memiliki beberapa alat berikut yang terpasang di 
 - **Langkah 6:** Menjalankan server lokal dengan `php artisan serve`.
 
 ```bash
-git clone https://github.com/username/nama-repositori.git
+git clone https://github.com/Imamsalji/logistik-MohamadImamSalji.git
 
