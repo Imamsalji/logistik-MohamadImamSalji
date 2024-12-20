@@ -11,15 +11,12 @@ Sebelum memulai, pastikan Anda memiliki beberapa alat berikut yang terpasang di 
 - **Git**: Digunakan untuk meng-clone repositori dari GitHub.
 - **Database**: MySQL atau database lain yang didukung Laravel.
 
-## Langkah 1: Clone Repositori dari GitHub
+**Langkah 1:** Meng-clone repositori GitHub.
+**Langkah 2:** Menginstal dependensi menggunakan Composer `composer install`.
+**Langkah 3:** Konfigurasi file `.env`.
+**Langkah 4:** Generate kunci aplikasi dengan `php artisan key:generate`.
+**Langkah 5:** Menjalankan migrasi database.
+**Langkah 6:** Menjalankan server lokal dengan `php artisan serve`.
 
-1. Buka terminal atau command prompt.
-2. Gunakan perintah Git untuk meng-clone repositori Laravel:
+```bash git clone https://github.com/username/nama-repositori.git
 
-``git clone https://github.com/username/nama-repositori.git
-
-## Langkah 2: Menginstal Dependensi
-
-1. Pastikan Anda sudah menginstal Composer.
-2. Jalankan perintah Composer untuk menginstal semua dependensi PHP yang dibutuhkan oleh Laravel::
-bash
