@@ -65,7 +65,7 @@ class BarangController extends Controller
      */
     public function barangstok()
     {
-        $barang = Barang::paginate(10); // Ambil data barang masuk beserta relasi
+        $barang = Barang::all(); // Ambil data barang masuk beserta relasi
         return view('barang.index', compact('barang'));
     }
 

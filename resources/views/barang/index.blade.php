@@ -3,15 +3,16 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Data Barang</h4>
-        </div>
-        <div class="card-content">
+            <h5 class="card-title">
+                Data Barang
+            </h5>
             <div class="d-flex justify-content-end">
-                <a href="{{ url('/laporan/barang') }}" class="btn btn-primary pull-right">Download PDF</a>
+                <a href="{{ url('/laporan/barang') }}" class="btn btn-primary">Download PDF</a>
             </div>
-            <!-- table striped -->
-            <div class="table-responsive">
-                <table class="table table-striped mb-0">
+        </div>
+        <div class="card-body">
+            <div class="table-responsive datatable-minimal">
+                <table class="table" id="table2">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -35,68 +36,12 @@
                 </table>
             </div>
         </div>
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination pagination-primary  justify-content-end mt-2">
-                @if ($barang->onFirstPage())
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                @else
-                    <li class="page-item">
-                        <a class="page-link" href="{{ $barang->previousPageUrl() }}" rel="prev">Previous</a>
-                    </li>
-                @endif
-
-                @foreach ($barang as $element)
-                    {{-- Separator (Tiga Titik) --}}
-                    @if (is_string($element))
-                        <li class="page-item disabled">
-                            <span class="page-link">{{ $element }}</span>
-                        </li>
-                    @endif
-
-                    {{-- Nomor Halaman --}}
-                    @if (is_array($element))
-                        @foreach ($element as $page => $url)
-                            @if ($page == $barang->currentPage())
-                                <li class="page-item active">
-                                    <span class="page-link">{{ $page }}</span>
-                                </li>
-                            @else
-                                <li class="page-item">
-                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                                </li>
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
-                @if ($barang->hasMorePages())
-                    <li class="page-item">
-                        <a class="page-link" href="{{ $barang->nextPageUrl() }}" rel="next">Next</a>
-                    </li>
-                @else
-                    <li class="page-item disabled">
-                        <span class="page-link">Next</span>
-                    </li>
-                @endif
-            </ul>
-        </nav>
     </div>
 
     {{-- sweetalert --}}
     <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>
-    @if (session('success'))
-        <script>
-            const Swal2 = Swal.mixin({
-                customClass: {
-                    input: 'form-control'
-                }
-            })
-            Swal2.fire({
-                icon: "success",
-                title: "Success",
-                text: "{{ session('success') }}"
-            })
-        </script>
-    @endif
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/static/js/pages/datatables.js') }}"></script>
 @endsection

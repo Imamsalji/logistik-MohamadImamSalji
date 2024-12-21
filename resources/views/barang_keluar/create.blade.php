@@ -22,7 +22,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="first-name-column">Nama Barang:</label>
-                                <select class="form-control" name="kode_barang" id="kode_barang">
+                                <select class="choices form-control" name="kode_barang" id="kode_barang">
                                     <option value="">-- Pilih Barang --</option>
                                     @foreach ($barang as $item)
                                         <option value="{{ $item->kode_barang }}">{{ $item->nama_barang }}</option>
@@ -65,4 +65,6 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
+    <script src="{{ asset('assets/static/js/pages/form-element-select.js') }}"></script>
 @endsection
