@@ -130,6 +130,12 @@
                                 <span>Daftar Stok Barang</span>
                             </a>
                         </li>
+                        <li class="sidebar-item {{ request()->segment(2) == 'stok' ? 'active' : '' }}">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class='sidebar-link'>Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>

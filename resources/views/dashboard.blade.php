@@ -90,8 +90,8 @@
             <div class="card-body py-4 px-4">
                 <div class="d-flex align-items-center">
                     <div class="ms-3 name">
-                        <h5 class="font-bold">Mohamad Imam Salji</h5>
-                        <h6 class="text-muted mb-0">@imamsalji</h6>
+                        <h5 class="font-bold">{{ Auth::user()->name }}</h5>
+                        <h6 class="text-muted mb-0">{{ Auth::user()->email }}</h6>
                     </div>
                 </div>
             </div>

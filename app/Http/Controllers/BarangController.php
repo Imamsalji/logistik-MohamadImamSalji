@@ -92,6 +92,8 @@ class BarangController extends Controller
      */
     public function simpanBarangMasuk(Request $request)
     {
+        $petugas = auth()->user()->name;
+
         $validated = $request->validate([
             'no_barang_masuk' => 'required|string|unique:barang_masuk,no_barang_masuk|max:50',
             'kode_barang' => 'required|exists:barang,kode_barang',
@@ -99,7 +101,7 @@ class BarangController extends Controller
             'origin' => 'required|string|max:150',
             'tanggal_masuk' => 'required|date',
         ]);
-
+        $validated['petugas'] = $petugas;
         BarangMasuk::create($validated);
 
         // Update stok barang
@@ -133,6 +135,8 @@ class BarangController extends Controller
      */
     public function simpanBarangKeluar(Request $request)
     {
+        $petugas = auth()->user()->name;
+
         $validated = $request->validate([
             'no_barang_keluar' => 'required|string|unique:barang_keluar,no_barang_keluar|max:50',
             'kode_barang' => 'required|exists:barang,kode_barang',
@@ -140,6 +144,7 @@ class BarangController extends Controller
             'destination' => 'required|string|max:150',
             'tanggal_keluar' => 'required|date',
         ]);
+        $validated['petugas'] = $petugas;
 
         $barang = Barang::find($validated['kode_barang']);
         if ($validated['quantity'] > $barang->stok) {
@@ -170,6 +175,7 @@ class BarangController extends Controller
      */
     public function updateBarangMasuk(Request $request, $id)
     {
+        $Name = auth()->user()->name;
         $barangMasuk = BarangMasuk::findOrFail($id);
         $validated = $request->validate([
             'no_barang_masuk' => 'required|string|unique:barang_masuk,no_barang_masuk,' . $id . '|max:50',
